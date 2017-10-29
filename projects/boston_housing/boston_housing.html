@@ -11880,23 +11880,23 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="k">print</span> <span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -11905,8 +11905,6 @@ div#notebook {
 <span class="k">print</span> <span class="s2">&quot;Mean price: ${:,.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_price</span><span class="p">)</span>
 <span class="k">print</span> <span class="s2">&quot;Median price ${:,.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">median_price</span><span class="p">)</span>
 <span class="k">print</span> <span class="s2">&quot;Standard deviation of prices: ${:,.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">std_price</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
 </pre></div>
 
 </div>
@@ -11927,11 +11925,7 @@ Minimum price: $105,000.00
 Maximum price: $1,024,800.00
 Mean price: $454,342.94
 Median price $438,900.00
-Standard deviation of prices: $165,340.28
-RM          6.185
-LSTAT      11.690
-PTRATIO    19.100
-dtype: float64
+Standard deviation of prices: $165,171.13
 </pre>
 </div>
 </div>
@@ -11969,9 +11963,9 @@ dtype: float64
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong> I think that:</p>
 <ul>
-<li>An increase in the value 'RM' would lead to an increase in the value of 'MEDV'</li>
-<li>An increase in the value 'LSTAT' would lead to an increase in the value of 'MEDV'</li>
-<li>An increase in the value 'PTRATIO' would lead to an decrease in the value of 'MEDV'</li>
+<li>An increase in the value 'RM' would lead to an increase in the value of 'MEDV', more rooms means more usage of a home, the home is more expensive.</li>
+<li>An increase in the value 'LSTAT' would lead to an decrease in the value of 'MEDV', if there are many "lower class" homeowners in the neighboarhood, the home may be very cheap.</li>
+<li>An increase in the value 'PTRATIO' would lead to an decrease in the value of 'MEDV', a high value of 'PTRATIO' means a teacher will teach more students than a lower value of 'PTRATION', this would indicate that this area may leak eduation resource, and the public school may not good. This is a negative factor to the price of home.</li>
 </ul>
 
 </div>
@@ -12006,7 +12000,7 @@ dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;r2_score&#39;</span>
@@ -12070,7 +12064,7 @@ dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Calculate the performance of this model</span>
@@ -12151,7 +12145,7 @@ The model have successfully captured the variation of the target variable, becau
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;train_test_split&#39;</span>
@@ -13825,7 +13819,7 @@ VwAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> The k-fold cross-validation technique is that spliting the training data to k consecutive parts, use the k-th part as valication data each time and use the rest k-1 parts to training model, this process will iterate k times. When we use grid search to do model selection, it is a mistake to use testing set evaluate a model good or not, these will let the model have the knoledge of the testing set, and will reduce the the ablity of generalization of the model. Using k-fold cross-validation when we do model selection , we will avoid this problem.</p>
+<p><strong>Answer: </strong> The k-fold cross-validation technique is that spliting the training data to k consecutive parts, use the k-th part as valication data each time and use the rest k-1 parts to training model, this process will iterate k times, and at last we get k scores, we can use the average of these k scores to evaluate the model weather good or not. Comparing with just using a particular subset of data for training or testing, the k-fold cross-validation much more stable and avoid the selected model depend on a particular random spliting. At last, k-fold cross-validation can fully use data and dose not waste data too much.</p>
 
 </div>
 </div>
@@ -14060,7 +14054,13 @@ Predicted selling price for Client 3&#39;s home: $888,720.00
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> I will recommend Client 1 sell his/her home at \$407,400.00, recommend Client 2 sell his/her home at \$230,508.41 and recommend Client 3 sell his/her home at \$888,720.00. These prices seem reasonable, we see that the Client 3's home is better than Client 2's and the Client 2's home is better than Client 1's, the predicted prices of these clients have the same order from high to low.</p>
+<p><strong>Answer: </strong></p>
+<ul>
+<li>I will recommend Client 1, Client 2 and Client 3 sell their home at \$407,400.00, \$230,508.41, \$888,720.00 seperately. </li>
+<li>Client 3 has has the biggest house, in the best public school neighborhood with the lowest poverty level, and the price of his/her home is close to maximum price, it is reasonable.</li>
+<li>Client 2 has the smallest house, in a neighborhood with a relatively high poverty rate and not the best public schools, and the price of his/her home is close to minmum price, it seems reasonable.</li>
+<li>All the value of the fatures of the Clinet 1's home is between Client 2's and Client 3's, and the price of his/her home is close to the mean and median price, it is also reasonable.</li>
+</ul>
 
 </div>
 </div>
